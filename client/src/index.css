@@ -1,0 +1,473 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&subset=cyrillic');
+
+:root {
+
+  /* colors */
+
+  --primary-50: #0095F6;
+  --primary-100: #008069;
+  --primary-150: #f0f2f5;
+  --primary-200: #d9fdd3;
+    
+
+  /* other colros */
+  ---black: #222;
+  --red: #d93025;
+  --red-light: #fce8e7;
+  --green-dark: #0f5132;
+  --white: #fff;
+  --text-color: #3f4244;
+  --light-text-color: #6f7f88;
+  --border-color: #eaf1fb;
+
+  /* fonts */
+
+  --bodyFont: 'Cabin', Sans-Serif;
+
+  --small-font-size: 1rem;
+  --smaller-font-size: .8rem;
+  --thick-font: 400;
+  --thicker-font: 600;
+
+  --borderRadius: .3rem;
+  --transition: .3 ease-in-out all;
+  
+}
+
+body {
+  margin: 0;
+  font-family: var(--bodyFont);
+  color: var(--text-color);
+  line-height: 1.75;
+  font-weight: var(--thick-font);
+}
+
+h1, h2, h3, h4, p, img {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bd-grid {
+  column-gap: 1rem;
+}
+.whatsapp-logo{
+  width: 70px;
+  height: auto;
+  margin-bottom: .3rem;
+}
+
+.alert {
+  font-size: .8rem;
+  padding: .5rem;
+}
+
+.alert-danger {
+  color: var(--red);
+}
+
+.alert-success {
+  color: var(--green-dark);
+}
+
+.bd-container{
+  max-width: 550px;
+  width: calc(100% - 2rem);
+  margin-top: 3rem;
+  padding: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: .5rem;
+  border: 1px solid var(--border-color);
+} 
+
+
+/* ===== Form Row Section ===== */
+
+.form-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--borderRadius);
+  outline: none;
+  padding: 1rem;
+  background: none;
+  z-index: 1;
+}
+
+.form-label {
+  position: absolute;
+  left: 1rem;
+  top: .5rem;
+  padding: 0 .25rem;
+  background-color: var(--white);
+  color: #80868b;
+  font-size: 1rem;
+  transition: .3s;
+}
+
+.form-input:focus + .form-label {
+  top: -0.5rem;
+  left: 0.8rem;
+  z-index: 10;
+  color: var(--primary-100);
+  transition: 0.3s;
+  font-size: .75rem;
+}
+
+
+.form-input:focus {
+  border: 1px solid var(--primary-50);
+}
+.form-row {
+  position: relative;
+  height: 43px;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+
+.form-flex {
+  display: grid;
+  width: 100%
+}
+
+.flex-input {
+  margin-right: 11rem;
+}
+
+/* ===== Register Section ===== */
+
+.rh-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: var(--thicker-font);
+}
+
+.img-preview-container {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.img-prev-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-prev {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+}
+
+.upload-text {
+  position: absolute;
+  margin-top: 4.5rem;
+  color: var(--primary-100);
+}
+
+.upload-btn {
+  visibility: hidden;
+}
+
+.signin-btn {
+  background: none;
+  color: var(--primary-100);
+  border: none;
+  font-size: .9rem;
+}
+
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.submit-btn {
+  background-color: var(--primary-100);
+  color: var(--white);
+  padding: .75rem 1.5rem;
+  border: none;
+  font-size: .9rem;
+  text-decoration: none;
+  border-radius: var(--borderRadius);
+}
+
+.submit-btn:disabled {
+  background-color: var(--primary-200);
+}
+
+/* =========== Dashboard ========*/
+
+.dashboard {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  background-color: var(--primary-150);
+}
+
+.dashboard-mobile {
+  max-width: 420px;
+  width: 100%;
+}
+
+.dashboard-page {
+  width: 100%;
+}
+
+
+/* ===== Navbar ======= */
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+ background-color: var(--primary-150);
+  height: 3rem;
+  align-items: center;
+  padding: 0 1rem;
+}
+.user-icon {
+  font-size: 1.5rem;
+}
+.nav-icon {
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+
+/* ===== Homepage =======*/
+
+.homepage-container {
+  width: 100%;
+  height: 93vh;
+  background-color: var(--white);
+}
+
+/* ======= Search ======== */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: .5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sc-btn {
+  font-size: 1.2rem;
+}
+
+.search-btn {
+  margin-top: .3rem;
+  margin-right: 1.5rem;
+}
+
+.filter-btn {
+  font-size: 1.5rem;
+}
+
+.sbtn-sinput {
+  display: flex;
+  align-items: center;
+  padding: .3rem 1rem;
+  border-radius: .75rem;
+  background-color: var(--primary-150);
+  width: 90%;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: .8rem;
+  background: none;
+  
+}
+
+/* ===== Contacts ====== */
+
+.test-img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid green;
+  object-fit: cover;
+  border-radius: 100%;
+  
+}
+
+.contacts-container {
+  height: 82vh;
+  margin-top: .5rem;
+  margin-left: .5rem;
+  overflow-y: scroll;
+  
+}
+
+.contacts-content {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cc-name-time {
+  display: flex;
+  width: 100%;
+  padding: .2rem .75rem;
+  border-bottom: 1px solid var(--border-color);
+  justify-content: space-between;
+}
+.cc-name-msg-grid {
+  line-height: 1.65;
+}
+
+.cc-name {
+  font-weight: var(--thick-font);
+  font-size: 1rem;
+  text-transform: uppercase;
+  
+}
+
+.cc-msg, .cc-time {
+  font-size: .75rem;
+}
+
+/* ======= Default Messages  =======*/
+
+.wweb-container {
+  position:absolute;
+  left:50%;
+  top:40%;
+  text-align: center;
+}
+
+.ww-title {
+  font-size: 1.8rem;
+  font-weight: var(--thick-font);
+}
+
+.ww-text {
+  font-size: .8rem;
+}
+
+
+/* ======== Messages Container ==========*/
+.msgs-container {
+  
+}
+.nav-msgs-container {
+  width: 100%;
+  display: flex;
+  padding: .3rem .75rem;
+  justify-content: space-between;
+}
+
+.lmsgs-flex, .rmsgs-flex  {
+  display: flex;
+  align-items: center;
+}
+
+.navm-name {
+  font-weight: var(--thick-font);
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+
+.rm-btn {
+  font-size: 1.3rem;
+  margin-left: 1.5rem;
+}
+
+.msgs-content {
+  width: 100%;
+  overflow-y: scroll;
+  height: 92vh;
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  padding: 2rem 5rem;
+}
+
+.each-message {
+  position: relative;
+  background-color: var(--primary-200);
+  padding: .5rem;
+  border-radius: .5rem;
+  max-width: 350px;
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.each-text, .each-time {
+  font-size: .85rem;
+}
+
+.each-time {
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+  color: var(--light-text-color);
+}
+
+
+@media screen and (min-width: 768px) {
+
+  body {
+    margin: 0;
+  }
+
+  .bd-container {
+    padding: 2rem 3rem;
+  }
+
+  /*  ===== Register Section  =====*/
+
+  .rh-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dashboard-page {
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .bd-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
