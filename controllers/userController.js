@@ -18,14 +18,19 @@ const addContact = async (req, res) => {
 
 
 const searchContact = async (req, res) => {
-    
-    const users = await User.findOne({phoneNo: {$regex: req.query.phoneNo}}).limit(10).select("phoneNo")
+    const users = await User.find({name: {$regex: req.query.name}}).limit(10).select("name")
               
     res.status(StatusCodes.OK).json({ users })
       
 }
 
+const getAllUsers = async (req, res) => {
+    const users = await User.findOne({ _id: req.user.userId }).populate('contacts');
+    res.status(StatusCodes.OK).json({ users: users.contacts, location: users.location });
+  }
+
 module.exports = {
     addContact,
-    searchContact
+    searchContact,
+    getAllUsers
 }

@@ -13,6 +13,8 @@ import {
     ADD_CONTACT_BEGIN,
     ADD_CONTACT_SUCCESS,
     HANDLE_CHANGE,
+    GET_USERS_BEGIN,
+    GET_USERS_SUCCESS,
     
 } from './actions'
 import { initialState } from './appContext'
@@ -105,6 +107,17 @@ const reducer = (state, action) => {
       user: action.payload.user,
       userLocation: action.payload.location,
     }
+  }
+
+  if (action.type === GET_USERS_BEGIN) {
+    return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === GET_USERS_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      users: action.payload.users
+    };
   }
 
 

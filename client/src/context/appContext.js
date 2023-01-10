@@ -17,6 +17,8 @@ import {
   ADD_CONTACT_BEGIN,
   ADD_CONTACT_SUCCESS,
   HANDLE_CHANGE,
+  GET_USERS_BEGIN,
+  GET_USERS_SUCCESS,
   
 
 } from './actions'
@@ -34,7 +36,7 @@ const initialState = {
   users: [],
   projectedMessages: [],
   username: '',
-  phoneNo: 2348140785264
+  name: ''
 
 }
 const AppContext = React.createContext()
@@ -107,11 +109,11 @@ const AppProvider = ({ children }) => {
   };
 
   const searchUser = async () => {
-    const {phoneNo} = state
+    const {name} = state
     let url = `/users/search?`
 
-    if (phoneNo) {
-      url = url + `phoneNo=${phoneNo}`
+    if (name) {
+      url = url + `name=${name}`
     }
     dispatch({ type: SEARCH_CONTACT_BEGIN })
     try {
@@ -153,7 +155,24 @@ const AppProvider = ({ children }) => {
     }
   }
 
-
+  const getAllUsers = async () => {
+    
+    dispatch({ type: GET_USERS_BEGIN });
+    try {
+      const { data } = await authFetch.get(`/users/allusers`);
+      const { users } = data;
+      dispatch({
+        type: GET_USERS_SUCCESS,
+        payload: {
+          users,
+        },
+      });
+      console.log(users)
+    } catch (error) {
+      logoutUser();
+    }
+    clearAlert();
+  };
 
 
   
@@ -185,9 +204,11 @@ const AppProvider = ({ children }) => {
         displayAlert,
         setupUser,
         logoutUser,
+        getCurrentUser,
         handleChange,
         searchUser,
-        addContact
+        addContact,
+        getAllUsers
         
       }}
     >

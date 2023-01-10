@@ -24,11 +24,11 @@ const SearchContact = () => {
         <form className=''>
             <h3 className='addc-title'>Add Contact</h3>
             <input
-              type='number'
-              name='phoneNo' 
+              type='text'
+              name='name' 
               value={localSearch}
               className='adc-input'
-              placeholder='Search'
+              placeholder='Search for user'
               onChange={optimizedDebounce}
             />
         </form>

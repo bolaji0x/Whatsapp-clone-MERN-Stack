@@ -230,26 +230,29 @@ ul, li {
 /* =========== Dashboard ========*/
 
 .dashboard {
-  width: 100%;
+  positon: relative;
   display: flex;
-  height: 100vh;
-  background-color: var(--primary-150);
-}
-
-.dashboard-mobile {
-  max-width: 420px;
   width: 100%;
+  borer: 2px solid blue;
+  height: 90vh;
 }
 
 .dashboard-page {
+  positin: absolute;
+  margin-top: -3.2rem;
+  riht: 0;
   width: 100%;
+  boder: 2px solid yellow;
 }
+
 
 
 /* ===== Navbar ======= */
 
 .navbar-container {
   display: flex;
+  max-width: 420px;
+  width: 100%;
   justify-content: space-between;
  background-color: var(--primary-150);
   height: 3rem;
@@ -263,13 +266,40 @@ ul, li {
   font-size: 1.3rem;
   margin-left: 1rem;
 }
+.ja {
+  font-size: 40rem;
+}
 
 /* ===== Homepage =======*/
 
 .homepage-container {
+  position: relative;
+  max-width: 420px;
   width: 100%;
   height: 93vh;
   background-color: var(--white);
+  bordr:  2px solid salmon;
+}
+
+.add-contact-btn {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  padding: .5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  text-decoration: none;
+  background-color: var(--green-dark);
+}
+
+.contact-plus-btn {
+  color: var(--white);
+  margin: 0;
+  padding: 0;
+  tex-align: center;
+  alig-items: center;
+  font-size: 1.5rem;
 }
 
 /* ======= Search ======== */
@@ -316,7 +346,7 @@ ul, li {
 
 /* ===== Contacts ====== */
 
-.test-img {
+.profile-img {
   width: 50px;
   height: 50px;
   border: 1px solid green;
@@ -338,6 +368,7 @@ ul, li {
   width: 100%;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 .cc-name-time {
@@ -346,6 +377,7 @@ ul, li {
   padding: .2rem .75rem;
   border-bottom: 1px solid var(--border-color);
   justify-content: space-between;
+  color: var(--text-color);
 }
 .cc-name-msg-grid {
   line-height: 1.65;
@@ -355,11 +387,13 @@ ul, li {
   font-weight: var(--thick-font);
   font-size: 1rem;
   text-transform: uppercase;
+  color: var(--text-color);
   
 }
 
 .cc-msg, .cc-time {
   font-size: .75rem;
+  color: var(--text-color);
 }
 
 /* ======= Default Messages  =======*/
@@ -440,6 +474,73 @@ ul, li {
   color: var(--light-text-color);
 }
 
+/* ======= Add Contact ====== */
+
+.add-contact-container {
+  margin-top: 1rem;
+  box-shadow: 0 2px 4px rgb(3 74 40 / 15%);
+  max-width: 500px;
+  width: calc(100% - 2rem);
+  height: 50vh;
+  margin-left: 1rem;
+  padding: 2rem 1rem;
+  border-radius: var(--borderRadius);
+  background-color: var(--white);
+}
+
+.addc-title {
+  font-weight: var(--thick-font);
+  margin-bottom: 1rem;
+}
+.adc-input {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  outline: none;
+  padding: .75rem 1rem;
+}
+
+.addu-container {
+  height: 30vh;
+  overflow-y: scroll;
+}
+
+.adcbtn {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  margin-top: .5rem;
+  
+}
+
+.abc-icon {
+  font-size: 2rem;
+  margin-right: .5rem;
+  
+}
+.adcbtn-grid  { 
+  line-height: 1rem;
+}
+
+.adcbtn-name {
+  font-size: .8rem;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+ 
+}
+
+.adcbtn-text {
+  color: var(--green-dark);
+  font-size: .8rem;
+ 
+}
+
+.no-users {
+  font-size: .8rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 
 @media screen and (min-width: 768px) {
 
@@ -458,8 +559,7 @@ ul, li {
     margin-bottom: 1.5rem;
   }
 
-  .dashboard-page {
-  }
+  
 }
 
 @media screen and (min-width: 500px) {

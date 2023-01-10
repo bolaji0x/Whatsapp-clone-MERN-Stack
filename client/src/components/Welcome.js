@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DefaultMessage = () => {
+const Welcome = () => {
   return (
     <>
       <div className='wweb-container'>
@@ -11,4 +11,4 @@ const DefaultMessage = () => {
   )
 }
 
-export default DefaultMessage
+export default Welcome

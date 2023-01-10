@@ -8,6 +8,8 @@ import ContactsContainer from './ContactsContainer'
 import TestImg from './TestImg'
 import SearchContact from './SearchContact'
 import SearchUser from './SearchUser'
+import Welcome from './Welcome'
+import ChatContainer from './ChatContainer'
 export {
   Alert,
   FormRow,
@@ -18,5 +20,7 @@ export {
   ContactsContainer,
   TestImg,
   SearchContact,
-  SearchUser
+  SearchUser,
+  Welcome,
+  ChatContainer
 }

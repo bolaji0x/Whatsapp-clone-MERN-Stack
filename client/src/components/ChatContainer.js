@@ -1,8 +1,8 @@
 import React from 'react'
-import { TestImg } from '../../components'
+import { TestImg } from '.'
 import { BiSearchAlt2, BiDotsVerticalRounded } from "react-icons/bi";
-import background from '../../assets/images/bg.png'
-const Messages = () => {
+import background from '../assets/images/bg.png'
+const ChatContainer = () => {
   return (
     <>
     <div className='msgs-container'>
@@ -28,4 +28,4 @@ const Messages = () => {
   )
 }
 
-export default Messages
+export default ChatContainer
