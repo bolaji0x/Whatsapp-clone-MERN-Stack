@@ -15,6 +15,11 @@ import {
     HANDLE_CHANGE,
     GET_USERS_BEGIN,
     GET_USERS_SUCCESS,
+    GET_MSGS_BEGIN,
+    GET_MSGS_SUCCESS,
+    CREATE_MSG_BEGIN,
+    CREATE_MSG_SUCCESS,
+    CREATE_MSG_ERROR,
     
 } from './actions'
 import { initialState } from './appContext'
@@ -121,6 +126,41 @@ const reducer = (state, action) => {
   }
 
 
+  if (action.type === GET_MSGS_BEGIN) {
+    return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === GET_MSGS_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      projectedMessages: action.payload.projectedMessages,
+    };
+  }
+
+  
+  if (action.type === CREATE_MSG_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+
+  if (action.type === CREATE_MSG_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'New Message Created!',
+
+    };
+  }
+  if (action.type === CREATE_MSG_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+    };
+  }
 
 
   if (action.type === GET_CURRENT_USER_BEGIN) {

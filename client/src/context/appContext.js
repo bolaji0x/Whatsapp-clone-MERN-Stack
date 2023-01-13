@@ -19,6 +19,11 @@ import {
   HANDLE_CHANGE,
   GET_USERS_BEGIN,
   GET_USERS_SUCCESS,
+  CREATE_MSG_BEGIN,
+  CREATE_MSG_SUCCESS,
+  CREATE_MSG_ERROR,
+  GET_MSGS_BEGIN,
+  GET_MSGS_SUCCESS,
   
 
 } from './actions'
@@ -174,7 +179,45 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const createMsg = async ({from, to, message}) => {
+    dispatch({ type: CREATE_MSG_BEGIN });
+    try {
+      await authFetch.post('/messages/addmsg', {
+        from, to, message,
+      });
+      
+      dispatch({ type: CREATE_MSG_SUCCESS });
+      
+    } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+        type: CREATE_MSG_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  }
+  
+  const getMessages = async ({from, to}) => {
+    dispatch({ type: GET_MSGS_BEGIN });
+    try {
+      const { data } = await authFetch.post(
+        `/messages/getmsg`,
+        {from, to}
+      );
 
+      const {projectedMessages} = data
+      dispatch({
+        type: GET_MSGS_SUCCESS,
+        payload: { projectedMessages }
+      });
+      console.log(projectedMessages)
+    } catch (error) {
+      logoutUser()
+    }
+    clearAlert();
+  }
+  
   
   const getCurrentUser = async () => {
     dispatch({ type: GET_CURRENT_USER_BEGIN });
@@ -208,7 +251,9 @@ const AppProvider = ({ children }) => {
         handleChange,
         searchUser,
         addContact,
-        getAllUsers
+        getAllUsers,
+        getMessages,
+        createMsg
         
       }}
     >

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Register, Error, ProtectedRoute } from './pages'
 import { SharedLayout, Chat, Messages, AddContact } from './pages/dashboard'
-
+import ChatInput from './components/ChatInput'
 import { Navbar } from './components'
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
         </Route>
         <Route path='/register' element={<Register />} />
         <Route path='/nav' element={<Navbar />} />
+        <Route path='/input' element={<ChatInput />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </Router>
