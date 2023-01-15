@@ -19,8 +19,11 @@ const ChatInput = ({ handleSendMsg }) => {
   return (
     
     <>
-      <div className='message-form-container'>
-        
+      <div className={!showEmojiPicker ? 'message-form-container' : 'message-form-container show-emoji'} >
+            <div className='emoji-container'>
+              {showEmojiPicker &&
+              <Picker height={300} width='100%' className='emoji-modal' onEmojiClick={(emojiObject)=> setMsg((prevMsg)=> prevMsg + emojiObject.emoji)} />}
+            </div>
             <form className='message-form' onSubmit={(event) => sendChat(event)}>
             <div className='left-mf'>
               <button><BiHappyAlt className='mf-btn lmf-btn' onClick={handleEmojiPickerhideShow} /></button>
@@ -38,10 +41,7 @@ const ChatInput = ({ handleSendMsg }) => {
               <button type='submit'><BiSend className='mf-btn rmf-btn' /></button>
             </div>
             </form>
-           <div className='emoji-container'>
-            {showEmojiPicker &&
-            <Picker height={400} width='100%' className='emoji-modal' onEmojiClick={(emojiObject)=> setMsg((prevMsg)=> prevMsg + emojiObject.emoji)} />}
-          </div>
+           
         
         
 

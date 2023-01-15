@@ -67,48 +67,55 @@ const ChatContainer = ({currentChat, socket}) => {
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [projectedMessages]);
 
 
   
 
   return (
     <>
-    <div className='msgs-container'>
-      <nav className='nav-msgs-container'>
-        <div className='lmsgs-flex'>
-          <TestImg />
-          <h4 className='navm-name'>{currentChat.name}</h4>
-        </div>
-        <div className='rmsgs-flex'>
-            <button><BiSearchAlt2 className='rm-btn' /></button>
-            <button><BiDotsVerticalRounded className='rm-btn' /></button>
-        </div>
-      </nav>
+    <div>
+      <div className='msgs-container'>
+        <header className='nav-msgs-container'>
+          <nav className='msgs-header'>
+            <div className='lmsgs-flex'>
+              <TestImg />
+              <h4 className='navm-name'>{currentChat.name}</h4>
+            </div>
+            <div className='rmsgs-flex'>
+                <button><BiSearchAlt2 className='rm-btn' /></button>
+                <button><BiDotsVerticalRounded className='rm-btn' /></button>
+            </div>
+          </nav>
+        </header>
 
-      <div style={{ backgroundImage: `url(${background})` }} className='msgs-content'>
-        {projectedMessages.map((message) => {
-          return (
-            <div ref={scrollRef} key={uuidv4()}>
-              <div className={`${
-                  message.fromSelf ? "sent" : "received"
-                }`}>
-                <div className='each-message'>
-                  <p className='each-text'>{message.message}</p>
-                  <p className='each-time'>8:34PM</p>
+        <div className='messages'>
+          <div  style={{ backgroundImage: `url(${background})` }} className='msgs-content' >
+          {projectedMessages.map((message) => {
+            return (
+              <div  key={uuidv4()}>
+                <div className={`${
+                    message.fromSelf ? "sent" : "received"
+                  }`} >
+                  <div  className='each-message'>
+                    <p className='each-text'>{message.message}</p>
+                    <p className='each-time'>8:34PM</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          )
-        })}
-          
-
-      </div>
-      
-      <ChatInput handleSendMsg={handleSendMsg} />
-    </div>
-
+            )
+          })}
+          <div ref={scrollRef} />
+          </div>
     
+        </div>
+      
+      </div>
+        
+      <div className='input-container'>
+        <ChatInput handleSendMsg={handleSendMsg} />
+      </div>
+    </div>
     </>
   )
 }

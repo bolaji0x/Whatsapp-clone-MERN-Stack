@@ -21,7 +21,7 @@ function App() {
         </Route>
         <Route path='/register' element={<Register />} />
         <Route path='/nav' element={<Navbar />} />
-        <Route path='/input' element={<ChatInput />} />
+        <Route path='/test' element={<ChatInput />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </Router>

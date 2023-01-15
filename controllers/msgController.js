@@ -14,6 +14,7 @@ const getMessages = async (req, res) => {
       return {
         fromSelf: msg.sender.toString() === from,
         message: msg.message.text,
+        
       };
     });
     

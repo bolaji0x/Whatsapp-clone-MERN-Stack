@@ -41,6 +41,13 @@
   
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--bodyFont);
+}
+
 body {
   margin: 0;
   font-family: var(--bodyFont);
@@ -230,19 +237,18 @@ ul, li {
 /* =========== Dashboard ========*/
 
 .dashboard {
-  positon: relative;
   display: flex;
-  width: 100%;
-  borer: 2px solid blue;
-  height: 90vh;
+  width: 100%;;
 }
 
 .dashboard-page {
-  positin: absolute;
-  margin-top: -3.2rem;
-  riht: 0;
-  width: 100%;
-  boder: 2px solid yellow;
+  argin-top: -2.5rem;
+  width: calc(100% - 420px);
+  boder: 1px solid blueviolet;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 
@@ -278,7 +284,6 @@ ul, li {
   width: 100%;
   height: 93vh;
   background-color: var(--white);
-  bordr:  2px solid salmon;
 }
 
 .add-contact-btn {
@@ -297,8 +302,6 @@ ul, li {
   color: var(--white);
   margin: 0;
   padding: 0;
-  tex-align: center;
-  alig-items: center;
   font-size: 1.5rem;
 }
 
@@ -400,8 +403,8 @@ ul, li {
 
 .wweb-container {
   position:absolute;
-  left:50%;
-  top:40%;
+  right: 25%;
+  top: 40%;
   text-align: center;
 }
 
@@ -417,32 +420,36 @@ ul, li {
 
 /* ======== Messages Container ==========*/
 .msgs-container {
-  position: fixed;
-  overflow-y: scroll;
-  ax-width: 200px;
-  width: 71%;
-  border: 1px solid green;
-  height: 100vh;
-  backgrond-color: var(--white);
+  positin: fixed;
+  oveflow-y: scroll;
+  width: 100%;
+  boder: 1px solid green;
+  mrgin-top: -1.5rem;
   
 }
 
-
-
+.messages {
+  postion: fixed;
+  ovrflow-y: scroll;
+}
 
 .nav-msgs-container {
-  top: 0;
-  position: fixed;
   width: 100%;
+}
+
+.msgs-header {
+  width: calc(100% - 420px);
+  position: fixed;
   display: flex;
   padding: .3rem .75rem;
   justify-content: space-between;
   background-color: var(--white);
+  z-index: 1;
 }
-
 .lmsgs-flex, .rmsgs-flex  {
   display: flex;
   align-items: center;
+  
 }
 
 .navm-name {
@@ -457,17 +464,18 @@ ul, li {
 }
 
 .msgs-content {
-  position: relative;
   width: 100%;
   overflow-y: scroll;
-  height: 80vh;
+  height: 91.5vh;
   background-attachment:fixed;
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
-  padding: 2rem 5rem;
-  margin-top: 4rem;
+  marin-top: 3rem;
+  padding-top: 4rem;
+  paddig: 0;
 }
+
 
 .sent,
 .received {
@@ -477,6 +485,7 @@ ul, li {
   display: block;
   margin: .5rem;
   border-radius: var(--borderRadius);
+  overflow-wrap: break-word;
   
 }
 
@@ -574,20 +583,27 @@ ul, li {
 }
 
 
+
 /* ====== Chat Input ========*/
 
 .message-form-container {
+  positon: relative;
+  bottom: 0;
   background-color: var(--primary-150);
   padding: .75rem 1rem;
-  overflow-y: scroll;
+  overlow-y: scroll;
+  max-with: 1020px;
+  width: 100%;
+  hight: 30vh;
+  align-items: center;
+  boder: 2px solid yellow;
 }
 
+
+
 .message-form {
+  positon: fixed;
   display: flex;
-  align-items: center;
-  width: 100%;
-  boder: 1px solid black;
-  pdding: .75rem 1rem;
 }
 
 .left-mf {
@@ -614,21 +630,23 @@ ul, li {
   border: none;
   outline: none;
   border-radius: var(--borderRadius);
-  padding: .3rem 1rem;
-  font-size: 1rem;
-  heiht: 40px;
+  padding: .5rem 1.5rem;
+  font-size: .9rem;
+  height: 35px;
   resize: none;
 }
 
 .emoji-container {
-  margin-top: 1rem;
-  borer: 1px solid green;
-  wdth: 40px;;
+  position: absolute;
+  oerflow-y: scroll;
+  margin-bottom: .5rem;
+  brder: 1px solid salmon;
+  bottom: 3.5rem;
+  left: 0;
+  width: 98%;
 }
 
-.emoji-moal {
-  widh: 40px;
-}
+
 @media screen and (min-width: 500px) {
   .bd-container {
     margin-left: auto;
