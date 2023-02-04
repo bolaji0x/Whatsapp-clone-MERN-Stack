@@ -13,11 +13,11 @@ const apiLimiter = rateLimiter({
 const {
   addContact,
   searchContact,
-  getAllUsers
+  getAllContacts
 } = require('../controllers/userController')
 
 router.route('/search').get(searchContact)
 router.route('/add/:id').patch(addContact)
-router.get('/allusers', getAllUsers);
+router.get('/allcontacts', getAllContacts);
 
 module.exports = router

@@ -18,7 +18,7 @@ const searchContact = async (req, res) => {
       
 }
 
-const getAllUsers = async (req, res) => {
+const getAllContacts = async (req, res) => {
     const users = await User.findOne({ _id: req.user.userId }).populate('contacts');
     res.status(StatusCodes.OK).json({ users: users.contacts, location: users.location });
   }
@@ -26,5 +26,5 @@ const getAllUsers = async (req, res) => {
 module.exports = {
     addContact,
     searchContact,
-    getAllUsers
+    getAllContacts
 }

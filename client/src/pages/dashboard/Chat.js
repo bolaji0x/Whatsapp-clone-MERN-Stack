@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const host = "http://localhost:5000"
 
 const Chat = () => {
-  const { getAllUsers, user, users } = useAppContext()
+  const { getAllContacts, user, users } = useAppContext()
 
   const socket = useRef();
   const [currentChat, setCurrentChat] = useState(undefined);
@@ -22,7 +22,7 @@ const Chat = () => {
   }, [user])
 
   useEffect(() => {
-    getAllUsers()
+    getAllContacts()
     // eslint-disable-next-line
   }, [user])
 

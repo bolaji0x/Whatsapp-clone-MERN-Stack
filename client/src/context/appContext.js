@@ -160,11 +160,11 @@ const AppProvider = ({ children }) => {
     }
   }
 
-  const getAllUsers = async () => {
+  const getAllContacts = async () => {
     
     dispatch({ type: GET_USERS_BEGIN });
     try {
-      const { data } = await authFetch.get(`/users/allusers`);
+      const { data } = await authFetch.get(`/users/allcontacts`);
       const { users } = data;
       dispatch({
         type: GET_USERS_SUCCESS,
@@ -251,7 +251,7 @@ const AppProvider = ({ children }) => {
         handleChange,
         searchUser,
         addContact,
-        getAllUsers,
+        getAllContacts,
         getMessages,
         createMsg
         

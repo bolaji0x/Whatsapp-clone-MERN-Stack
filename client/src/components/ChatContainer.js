@@ -4,7 +4,7 @@ import { BiSearchAlt2, BiDotsVerticalRounded } from "react-icons/bi";
 import background from '../assets/images/bg.png'
 import ChatInput from './ChatInput';
 import { useAppContext } from '../context/appContext';
-import { v4 as uuidv4 } from "uuid";
+
 
 const ChatContainer = ({currentChat, socket}) => {
   const { user, getMessages, projectedMessages, createMsg} = useAppContext()
@@ -18,6 +18,7 @@ const ChatContainer = ({currentChat, socket}) => {
         from: user?._id,
         to: currentChat._id,
       })
+      
       // eslint-disable-next-line 
     }, [currentChat, messages])
   
@@ -51,6 +52,13 @@ const ChatContainer = ({currentChat, socket}) => {
     msgs.push({ fromSelf: true, message: msg });
     setMessages(msgs);
   };
+
+  const formatDate = (date) => {
+    const hours = new Date(date).getHours();
+    const minutes = new Date(date).getMinutes();
+    return `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes} ${hours < 12 ? 'am ' : 'pm'}`;
+    
+  }
   
   useEffect(() => {
     if (socket.current) {
@@ -91,15 +99,17 @@ const ChatContainer = ({currentChat, socket}) => {
 
         <div className='messages'>
           <div  style={{ backgroundImage: `url(${background})` }} className='msgs-content' >
-          {projectedMessages.map((message) => {
+          {projectedMessages.map((item) => {
+            const { _id ,fromSelf, message, createdAt } = item
+            console.log(createdAt)
             return (
-              <div  key={uuidv4()}>
-                <div className={`${
-                    message.fromSelf ? "sent" : "received"
+              <div  key={_id}>
+                <div  className={`${
+                    fromSelf ? "sent" : "received"
                   }`} >
                   <div  className='each-message'>
-                    <p className='each-text'>{message.message}</p>
-                    <p className='each-time'>8:34PM</p>
+                    <p className='each-text'>{message}</p>
+                    <p className='each-time'>{formatDate(createdAt)}</p>
                   </div>
                 </div>
               </div>

@@ -12,9 +12,10 @@ const getMessages = async (req, res) => {
 
     const projectedMessages = messages.map((msg) => {
       return {
+        _id: msg._id,
         fromSelf: msg.sender.toString() === from,
         message: msg.message.text,
-        
+        createdAt: msg.createdAt
       };
     });
     
