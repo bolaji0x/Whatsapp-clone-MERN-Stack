@@ -31,20 +31,22 @@ const Chat = () => {
   };
   return (
     <>
-    <div className='dashboard'>
-      <div className='homepage-container'>
-        <SearchContainer />
-        <ContactsContainer users={users} changeChat={handleChatChange} />
+    <div className='homepage'>
+      <div className='dashboard'>
+        <div className='homepage-container'>
+          <SearchContainer />
+          <ContactsContainer users={users} changeChat={handleChatChange} />
 
-        <Link to='/addcontact' className='add-contact-btn'><BiUserPlus className='contact-plus-btn' /></Link>
-      </div>
+          <Link to='/addcontact' className='add-contact-btn'><BiUserPlus className='contact-plus-btn' /></Link>
+        </div>
 
-      <div className='dashboard-page'>
-        {currentChat === undefined ? (
-            <Welcome />
-          ) : (
-            <ChatContainer currentChat={currentChat} socket={socket} />
-          )}
+        <div className='dashboard-page'>
+          {currentChat === undefined ? (
+              <Welcome />
+            ) : (
+              <ChatContainer currentChat={currentChat} socket={socket} />
+            )}
+        </div>
       </div>
     </div>
     </>

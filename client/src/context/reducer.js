@@ -20,6 +20,7 @@ import {
     CREATE_MSG_BEGIN,
     CREATE_MSG_SUCCESS,
     CREATE_MSG_ERROR,
+    TOGGLE_CONTACT,
     
 } from './actions'
 import { initialState } from './appContext'
@@ -64,6 +65,13 @@ const reducer = (state, action) => {
       alertType: 'danger',
       alertText: action.payload.msg,
     }
+  }
+
+  if (action.type === TOGGLE_CONTACT) {
+    return {
+      ...state,
+      showContact: !state.showContact,
+    };
   }
 
   if (action.type === LOGOUT_USER) {

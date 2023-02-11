@@ -24,6 +24,7 @@ import {
   CREATE_MSG_ERROR,
   GET_MSGS_BEGIN,
   GET_MSGS_SUCCESS,
+  TOGGLE_CONTACT,
   
 
 } from './actions'
@@ -37,7 +38,7 @@ const initialState = {
   alertType: '',
   user: null,
   userLocation: '',
-
+  showContact: false,
   users: [],
   projectedMessages: [],
   username: '',
@@ -103,6 +104,10 @@ const AppProvider = ({ children }) => {
     }
     clearAlert()
   }
+
+  const toggleContact = () => {
+    dispatch({ type: TOGGLE_CONTACT });
+  };
 
   const logoutUser = async () => {
     await authFetch.get('/auth/logout');
@@ -246,6 +251,7 @@ const AppProvider = ({ children }) => {
         ...state,
         displayAlert,
         setupUser,
+        toggleContact,
         logoutUser,
         getCurrentUser,
         handleChange,

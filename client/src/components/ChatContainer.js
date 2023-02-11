@@ -1,26 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { TestImg } from '.'
 import { BiSearchAlt2, BiDotsVerticalRounded } from "react-icons/bi";
 import background from '../assets/images/bg.png'
 import ChatInput from './ChatInput';
 import { useAppContext } from '../context/appContext';
+import { BsArrowLeftShort } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 
 const ChatContainer = ({currentChat, socket}) => {
-  const { user, getMessages, projectedMessages, createMsg} = useAppContext()
+  const { user, getMessages, projectedMessages, createMsg, showContact} = useAppContext()
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
 
   
-    useEffect(() => {
+  useEffect(() => {
       getMessages({
         from: user?._id,
         to: currentChat._id,
       })
       
       // eslint-disable-next-line 
-    }, [currentChat, messages])
+  }, [currentChat, messages])
   
 
   useEffect(() => {
@@ -79,15 +80,17 @@ const ChatContainer = ({currentChat, socket}) => {
 
 
   
-
   return (
     <>
-    <div>
+    <div className={
+      showContact ? 'sidebar-container' : 'sidebar-container show-sidebar'
+      }>
       <div className='msgs-container'>
         <header className='nav-msgs-container'>
           <nav className='msgs-header'>
             <div className='lmsgs-flex'>
-              <TestImg />
+              <Link onClick={() => window.location.reload()} to='/' ><BsArrowLeftShort className='arrow-btn' /></Link>
+            <img className='profile-img' alt={currentChat.name} src={currentChat.images[0].url} />
               <h4 className='navm-name'>{currentChat.name}</h4>
             </div>
             <div className='rmsgs-flex'>
@@ -101,7 +104,7 @@ const ChatContainer = ({currentChat, socket}) => {
           <div  style={{ backgroundImage: `url(${background})` }} className='msgs-content' >
           {projectedMessages.map((item) => {
             const { _id ,fromSelf, message, createdAt } = item
-            console.log(createdAt)
+            
             return (
               <div  key={_id}>
                 <div  className={`${

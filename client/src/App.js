@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Register, Error, ProtectedRoute } from './pages'
-import { SharedLayout, Chat, Messages, AddContact } from './pages/dashboard'
+import { SharedLayout, Chat, AddContact } from './pages/dashboard'
 import ChatInput from './components/ChatInput'
 import { Navbar } from './components'
 function App() {

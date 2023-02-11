@@ -4,8 +4,8 @@ import {SearchContact, SearchUser} from '../../components'
 const AddContact = () => {
   return (
     <div className='add-contact-container'>
-        <SearchContact />
-        <SearchUser />
+      <SearchContact />
+      <SearchUser />
     </div>
   )
 }

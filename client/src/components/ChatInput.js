@@ -41,11 +41,6 @@ const ChatInput = ({ handleSendMsg }) => {
               <button type='submit'><BiSend className='mf-btn rmf-btn' /></button>
             </div>
             </form>
-           
-        
-        
-
-
       </div>
     </>
     

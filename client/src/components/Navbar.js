@@ -3,17 +3,19 @@ import { BiUserCircle, BiLoaderCircle, BiMessageDetail, BiDotsVerticalRounded } 
 import {BsPeople} from "react-icons/bs";
 const Navbar = () => {
   return (
-    <div className='navbar-container'>
-      <div>
-        <button><BiUserCircle className='user-icon' /></button>
+    <nav className='navbar-container'>
+      <div className='nav-content'>
+        <div>
+          <button><BiUserCircle className='user-icon' /></button>
+        </div>
+        <div>
+          <button><BsPeople className='nav-icon' /></button>
+          <button><BiLoaderCircle className='nav-icon' /></button>
+          <button><BiMessageDetail className='nav-icon' /></button>
+          <button><BiDotsVerticalRounded className='nav-icon' /></button>
+        </div>
       </div>
-      <div>
-        <button><BsPeople className='nav-icon' /></button>
-        <button><BiLoaderCircle className='nav-icon' /></button>
-        <button><BiMessageDetail className='nav-icon' /></button>
-        <button><BiDotsVerticalRounded className='nav-icon' /></button>
-      </div>
-    </div>
+    </nav>
   )
 }
 
