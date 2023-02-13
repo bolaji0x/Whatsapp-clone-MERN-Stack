@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, FormRow, Logo } from '../components'
+import { Alert, FormRow } from '../components'
 import { useAppContext } from '../context/appContext'
 import { useNavigate, Navigate } from 'react-router-dom'
 //Dummy Phone Number +2348140785264

@@ -114,10 +114,16 @@ ul, li {
 
 /* ===== Form Row Section ===== */
 
-.form-input {
-  position: absolute;
-  top: 0;
-  left: 0;
+*,
+*:focus{outline: none}
+
+
+.form-item{
+  position: relative;
+  margin-bottom: 15px
+}
+.form-item input{
+  display: block;
   width: 100%;
   height: 100%;
   font-size: 1rem;
@@ -127,47 +133,34 @@ ul, li {
   padding: 1rem;
   background: none;
   z-index: 1;
+  transition: all .3s ease;
+  padding: 1rem;
 }
-
-.form-label {
+.form-item input:focus{
+  border: 1px solid var(--primary-100);
+}
+.form-item label{
   position: absolute;
-  left: 1rem;
-  top: .5rem;
-  padding: 0 .25rem;
+  z-index: 2;
+  top: 13px;
+  left: 10px;
+  font-size: 1rem;
+  transition: all .3s ease;
+  padding: 0 .3rem;
   background-color: var(--white);
   color: #80868b;
-  font-size: 1rem;
-  transition: .3s;
-}
 
-.form-input:focus + .form-label {
-  top: -0.5rem;
-  left: 0.8rem;
+}
+.form-item input:focus + label,
+.form-item input:valid + label{
+  font-size: .8rem;
+  top: -12px
+}
+.form-item input:focus + label{
   z-index: 10;
   color: var(--primary-100);
   transition: 0.3s;
   font-size: .75rem;
-}
-
-
-.form-input:focus {
-  border: 1px solid var(--primary-50);
-}
-.form-row {
-  position: relative;
-  height: 43px;
-  margin-bottom: 2rem;
-  width: 100%;
-}
-
-
-.form-flex {
-  display: grid;
-  width: 100%
-}
-
-.flex-input {
-  margin-right: 11rem;
 }
 
 /* ===== Register Section ===== */
@@ -658,7 +651,8 @@ ul, li {
   .bd-container,
   .nav-content,
   .dashboard,
-  .sidebar-container {
+  .sidebar-container,
+  .add-contact-container {
     margin-left: auto;
     margin-right: auto;
   }

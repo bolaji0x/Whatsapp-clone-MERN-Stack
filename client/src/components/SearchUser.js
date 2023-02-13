@@ -4,14 +4,17 @@ import { Link } from 'react-router-dom'
 import { BiUserCircle } from "react-icons/bi";
 
 const SearchUser = () => {
-  const {isLoading, users, searchUser, name, addContact} = useAppContext()
+  const {contacts, searchUser, name, addContact} = useAppContext()
 
     useEffect(() => {
         searchUser()
         // eslint-disable-next-line
     }, [name])
 
-    if (users.length === 0) {
+
+    
+
+    if (contacts.length === 0) {
         return (
             <h2 className='no-users'>Oops! No Users to display...</h2>
         );
@@ -20,7 +23,7 @@ const SearchUser = () => {
     <>
         <div className='addu-container'>
           <div>
-            {users.map((user) => {
+            {contacts.map((user) => {
               const {_id, name} = user
               return (
                 <Link key={_id} className='adcbtn'>

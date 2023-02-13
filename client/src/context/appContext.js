@@ -25,6 +25,7 @@ import {
   GET_MSGS_BEGIN,
   GET_MSGS_SUCCESS,
   TOGGLE_CONTACT,
+  ADD_CONTACT_ERROR,
   
 
 } from './actions'
@@ -42,7 +43,8 @@ const initialState = {
   users: [],
   projectedMessages: [],
   username: '',
-  name: ''
+  name: '',
+  contacts: []
 
 }
 const AppContext = React.createContext()
@@ -128,15 +130,15 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SEARCH_CONTACT_BEGIN })
     try {
       const {data} = await authFetch(url)
-      const {users} = data
-      console.log(users)
+      const {contacts} = data
+      console.log(contacts)
       dispatch({
         type: SEARCH_CONTACT_SUCCESS,
         payload: {
-          users,
+          contacts,
         }
       })
-      console.log(users)
+      console.log(contacts)
     } catch (error) {
       if (error.response.status !== 401) return
         dispatch({
@@ -161,7 +163,12 @@ const AppProvider = ({ children }) => {
         },
       })
     } catch (error) {
-      console.log(error)
+      if (error.response.status !== 401) {
+        dispatch({
+          type: ADD_CONTACT_ERROR,
+          payload: { msg: error.response.data.msg },
+        });
+      }
     }
   }
 

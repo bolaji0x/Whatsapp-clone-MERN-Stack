@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from 'react'
 import { useAppContext } from '../context/appContext';
-
+import { Alert } from '../components'
 const SearchContact = () => {
   const [localSearch, setLocalSearch] = useState('');
-    const { handleChange} = useAppContext()
+    const { handleChange, showAlert} = useAppContext()
 
     const debounce = () => {
         let timeoutID;
@@ -23,12 +23,13 @@ const SearchContact = () => {
     <>
         <form className=''>
             <h3 className='addc-title'>Add Contact</h3>
+            {showAlert && <Alert />}
             <input
               type='text'
               name='name' 
               value={localSearch}
               className='adc-input'
-              placeholder='Search for user'
+              placeholder='Search for user by name'
               onChange={optimizedDebounce}
             />
         </form>

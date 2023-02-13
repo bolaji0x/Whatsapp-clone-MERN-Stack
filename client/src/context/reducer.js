@@ -21,6 +21,7 @@ import {
     CREATE_MSG_SUCCESS,
     CREATE_MSG_ERROR,
     TOGGLE_CONTACT,
+    ADD_CONTACT_ERROR,
     
 } from './actions'
 import { initialState } from './appContext'
@@ -95,7 +96,7 @@ const reducer = (state, action) => {
     return {
       ...state,
       isLoading: false,
-      users: action.payload.users
+      contacts: action.payload.contacts
     }
   }
 
@@ -116,10 +117,22 @@ const reducer = (state, action) => {
   if (action.type === ADD_CONTACT_SUCCESS) {
     return {
       ...state,
+      showAlert: true,
       isLoading: false,
       user: action.payload.user,
       userLocation: action.payload.location,
+      alertText: 'User added to contacts',
     }
+  }
+
+  if (action.type === ADD_CONTACT_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+    };
   }
 
   if (action.type === GET_USERS_BEGIN) {

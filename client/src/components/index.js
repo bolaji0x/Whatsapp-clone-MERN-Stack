@@ -5,7 +5,6 @@ import Navbar from './Navbar'
 import Logo from './Logo'
 import SearchContainer from './SearchContainer'
 import ContactsContainer from './ContactsContainer'
-import TestImg from './TestImg'
 import SearchContact from './SearchContact'
 import SearchUser from './SearchUser'
 import Welcome from './Welcome'
@@ -18,7 +17,6 @@ export {
   Logo,
   SearchContainer,
   ContactsContainer,
-  TestImg,
   SearchContact,
   SearchUser,
   Welcome,
